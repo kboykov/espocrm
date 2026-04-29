@@ -34,7 +34,7 @@
             ],
             [
                 {"name": "notificationGrouping"},
-                false
+                {"name": "notificationSoundMode"}
             ]
         ]
     }

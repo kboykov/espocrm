@@ -659,7 +659,7 @@
             "min": 0,
             "max": 20
         },
-        "notificationSoundsDisabled": {
+        "notificationSoundsEnabled": {
             "type": "bool"
         },
         "calendarEntityList": {

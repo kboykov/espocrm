@@ -268,7 +268,7 @@ return [
     'auth2FAInPortal' => false,
     'personNameFormat' => 'firstLast',
     'newNotificationCountInTitle' => false,
-    'notificationSoundsDisabled' => true,
+    'notificationSoundsEnabled' => false,
     'pdfEngine' => 'Dompdf',
     'smsProvider' => null,
     'mapProvider' => 'Google',

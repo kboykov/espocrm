@@ -59,7 +59,7 @@ class PopupNotificationView extends View {
      */
     isCollapsed = false
 
-    soundPath = 'client/sounds/pop_cork'
+    soundPath = 'client/sounds/notification'
 
     /**
      * @param {{
@@ -152,13 +152,45 @@ class PopupNotificationView extends View {
     }
 
     playSound() {
-        if (this.getConfig().get('notificationSoundsDisabled') ?? true) {
+        if (!this.isNotificationSoundEnabled()) {
             return;
         }
 
-        const audio = new Audio(this.soundPath + '.mp3');
+        this.playSoundFile(['wav', 'mp3', 'ogg']);
+    }
+
+    /**
+     * @private
+     * @param {string[]} extensionList
+     */
+    playSoundFile(extensionList) {
+        const extension = extensionList.shift();
+
+        if (!extension) {
+            return;
+        }
+
+        const audio = new Audio(`${this.soundPath}.${extension}`);
         audio.volume = 0.3;
-        audio.play().catch(() => {});
+        audio.play().catch(() => this.playSoundFile(extensionList));
+    }
+
+    /**
+     * @private
+     * @return {boolean}
+     */
+    isNotificationSoundEnabled() {
+        const mode = this.getPreferences().get('notificationSoundMode');
+
+        if (mode === 'Enabled') {
+            return true;
+        }
+
+        if (mode === 'Disabled') {
+            return false;
+        }
+
+        return this.getConfig().get('notificationSoundsEnabled') ?? false;
     }
 
     /**

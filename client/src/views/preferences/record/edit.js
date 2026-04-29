@@ -97,7 +97,7 @@ class PreferencesEditRecordView extends EditRecordView {
         this.controlColorsField();
         this.listenTo(this.model, 'change:scopeColorsDisabled', () => this.controlColorsField());
 
-        let hideNotificationPanel = true;
+        let hideNotificationPanel = false;
 
         if (!this.getConfig().get('assignmentEmailNotifications') || model.isPortal()) {
             this.hideField('receiveAssignmentEmailNotifications', true);

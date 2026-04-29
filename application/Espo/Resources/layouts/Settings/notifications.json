@@ -3,7 +3,7 @@
         "label": "In-app Notifications",
         "rows": [
             [{"name": "assignmentNotificationsEntityList"}, false],
-            [{"name": "newNotificationCountInTitle"}, {"name": "notificationSoundsDisabled"}]
+            [{"name": "newNotificationCountInTitle"}, {"name": "notificationSoundsEnabled"}]
         ]
     },
     {
